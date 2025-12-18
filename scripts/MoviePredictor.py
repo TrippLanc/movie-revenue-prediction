@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import mean_absolute_error
 
 movies = pd.read_csv('data/tmdb_5000_movies.csv')
 
@@ -14,8 +15,6 @@ X = movies[['budget', 'popularity', 'runtime']]
 y = movies['revenue']
 
 X = X.fillna(0)
-# Splitting data: 80% training, 20% testing
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Function made to extract names from the JSON-like strings
 def extract_genres(genre_str):
@@ -37,6 +36,10 @@ X = pd.concat([movies[['budget', 'popularity', 'runtime']], genres_encoded], axi
 X['runtime'] = X['runtime'].fillna(X['runtime'].median())
 X['budget'] = X['budget'].fillna(X['budget'].median())
 
+# Splitting data: 80% training, 20% testing
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
@@ -48,3 +51,9 @@ model.fit(X_train_scaled, y_train)
 # Make predictions
 predictions = model.predict(X_test_scaled)
 print("Model trained successfully.")
+
+mae = mean_absolute_error(y_test, predictions)
+print(f"On average, our model is off by: ${mae:,.2f}")
+
+importance = pd.DataFrame({'Feature': X.columns, 'Weight': model.coef_})
+print(importance.sort_values(by='Weight', ascending=False).head(5))
