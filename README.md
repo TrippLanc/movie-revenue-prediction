@@ -3,7 +3,7 @@
 Project Overview:
 - This project uses the TMDB 5000 Movie Dataset to predict a movie's global revenue based on its budget, popularity, and genres. I built this to demonstrate the full data lifecycle: from data acquisition and cleaning to feature engineering and predictive modeling.
 
-Key Results & Visualizations
+Key Results & Visualizations:
 1. Top Factors Driving Revenue
 - The model identifies which features have the strongest correlation with a movie's financial success. According to the coefficients, Budget and Popularity are the strongest predictors, followed by specific genres like Adventure and Animation.
 ![Feature Importance](images/feature_importance.png)
@@ -24,6 +24,7 @@ Technical Stack:
 - Version Control: Git/GitHub
 
 Project Structure:
+
 movie-revenue-prediction/
 
 ├── data/               # Raw dataset (CSV)
