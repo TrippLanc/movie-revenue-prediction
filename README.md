@@ -1,15 +1,15 @@
 # movie-revenue-prediction
 
 Project Overview:
-This project uses the TMDB 5000 Movie Dataset to predict a movie's global revenue based on its budget, popularity, and genres. I built this to demonstrate the full data lifecycle: from data acquisition and cleaning to feature engineering and predictive modeling.
+- This project uses the TMDB 5000 Movie Dataset to predict a movie's global revenue based on its budget, popularity, and genres. I built this to demonstrate the full data lifecycle: from data acquisition and cleaning to feature engineering and predictive modeling.
 
 Key Results & Visualizations
 1. Top Factors Driving Revenue
-The model identifies which features have the strongest correlation with a movie's financial success. According to the coefficients, Budget and Popularity are the strongest predictors, followed by specific genres like Adventure and Animation.
+- The model identifies which features have the strongest correlation with a movie's financial success. According to the coefficients, Budget and Popularity are the strongest predictors, followed by specific genres like Adventure and Animation.
 ![Feature Importance](images/feature_importance.png)
 
 2. Actual vs. Predicted Revenue
-This scatter plot visualizes the model's accuracy. The red dashed line represents "perfect" prediction. While the model tracks the trend well for mid-budget films, the variance increases for high-revenue blockbusters, suggesting that "breakout hits" are harder to predict with linear features alone.
+- This scatter plot visualizes the model's accuracy. The red dashed line represents "perfect" prediction. While the model tracks the trend well for mid-budget films, the variance increases for high-revenue blockbusters, suggesting that "breakout hits" are harder to predict with linear features alone.
 ![Actual vs. Predicted](images/actual_vs_predicted.png)
 
 Key Features:
@@ -25,10 +25,15 @@ Technical Stack:
 
 Project Structure:
 movie-revenue-prediction/
+
 ├── data/               # Raw dataset (CSV)
+
 ├── notebooks/          # Exploratory Data Analysis (Jupyter)
+
 ├── scripts/            # Final Python model (MoviePredictor.py)
+
 ├── requirements.txt    # Dependency list
+
 └── README.md
 
 How to run:
